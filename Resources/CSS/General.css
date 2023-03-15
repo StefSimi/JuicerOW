@@ -17,7 +17,6 @@ body{
 
 /*Ceva workaround dubios*/
 #Home{
-    display: contents;
     font-family: 'Roboto';
 }
 
@@ -31,7 +30,7 @@ body{
                         "z-5 z-6 z-7 z-7" ;
 }
 
-#Home > * {
+#Grid-Home > * {
     border:3px  solid var(--border-color);
     font-size: 15px;
 }
@@ -82,6 +81,7 @@ ul.ifr li{
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     transition:background-color 0.8s linear;
+    box-shadow: 2px 2px 2px var(--border-color);
 }
 ul.ifr li:hover{
     overflow: hidden;
