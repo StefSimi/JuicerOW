@@ -12,6 +12,7 @@ img {
   max-width: 800px;
 }
 body{
+  margin: 0;
   margin-left: var(--site-spacing); 
   margin-right: var(--site-spacing);
     --background-color: #D5FFEA;

@@ -1,6 +1,13 @@
 #hamburger, #ch-menu{
     display: none;
 }
+.fa-house {
+  display: inline-block; /* or 'inline' */
+}
+
+li div {
+  display: inline-block; /* or 'inline' */
+}
 body{
     --menu-height:55px;
     --button-width:150px;
@@ -42,8 +49,29 @@ ul.menu > li:not(:has(ul)) {
     text-shadow: 0px 0px 0px rgba(0,0,0, 1);
   }
 */
+
+li.shadowtext a{
+    text-shadow: 0px -10px 0px rgba(0,0,0, 0);
+    transition: text-shadow 0.5s linear;
+}
+li:hover.shadowtext a{
+    text-shadow: 0px 0px 0px rgba(0,0,0, 1);
+}
+
 ul.menu li{
-    text-shadow: 0px -10px 0px rgba(0,0,0, 0.0);
+    text-shadow: 0px 0px 0px rgba(0,0,0, 0.0);
+}
+ul.menu li ul li{
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color,background-color 0.5s linear;
+}
+ul.menu li ul li:hover{
+    background-color: var(--cul4);
+    text-decoration-color: rgba(0,0,0, 1);
+}
+ul.menu li{
+    /*text-shadow: 0px -10px 0px rgba(0,0,0, 0.0);*/
     width:var(--button-width);
     height:var(--menu-height);
     background-color: var(--menu-color);
@@ -51,7 +79,7 @@ ul.menu li{
     text-align: center;
     border: 1px solid black;
     box-sizing: border-box;
-    transition: background-color,text-shadow 0.5s linear;
+    transition: background-color/*,text-shadow */0.5s linear;
 }
 ul.menu, ul.menu ul{
     padding: 0;
@@ -61,7 +89,7 @@ ul.menu, ul.menu ul{
 ul.menu li:hover{
     background-color: var(--cul4);
     overflow: visible;
-    text-shadow: 0px 0px 0px rgba(0,0,0, 1);
+    /*text-shadow: 0px 0px 0px rgba(0,0,0, 1);*/
 }
 
 ul.menu ul{
