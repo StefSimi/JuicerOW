@@ -1,5 +1,19 @@
+:root {
+    --site-spacing: 15px;
+  }
+body{
+    margin-left: var(--site-spacing); 
+    margin-right: var(--site-spacing);
+}
+img {
+    width: 20%;
+    height: 20%;
+    min-width: 50px;
+    max-width: 800px;
+  }
 #Grid-Home{
     display: grid;
+    grid-gap: 15px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:"z-1 z-1 z-1"
                         "z-8 z-8 z-8"

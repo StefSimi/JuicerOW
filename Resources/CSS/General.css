@@ -2,7 +2,18 @@
     font-family: 'Roboto';
     src: url(./Fonts/Roboto-Black.ttf) format('truetype');
 }
+:root {
+  --site-spacing: 20px;
+}
+img {
+  width: 30%;
+  height: 30%;
+  min-width: 50px;
+  max-width: 800px;
+}
 body{
+  margin-left: var(--site-spacing); 
+  margin-right: var(--site-spacing);
     --background-color: #D5FFEA;
     --cul2: #A0E368;
     --cul3: #FAE87F;
@@ -20,21 +31,40 @@ body{
     font-family: 'Roboto';
 }
 
+header{
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+}
+
 #Grid-Home{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas:"z-1 z-1 z-1 z-1"
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+  
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:"z-1 z-1 z-1 z-1"
                         "z-8 z-8 z-8 z-8"
                         "z-3 z-2 z-2 z-4"
                         "z-5 z-6 z-7 z-7" ;
+  
 }
 
 #Grid-Home > * {
-    border:3px  solid var(--border-color);
-    font-size: 15px;
+  padding: 4px;
+  border:3px  solid var(--border-color);
+  font-size: 15px;
 }
 
+footer{
+  border: 1px solid var(--border-color);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
 
 
 
@@ -178,4 +208,7 @@ ul.ifr li a{
     margin-top: 10px;
     font-weight: bold;
     text-align: center;
+  }
+  #Watermark{
+    display: none;
   }

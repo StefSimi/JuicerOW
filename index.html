@@ -21,37 +21,40 @@
     <meta name="msapplication-config" content="./Resources/Assets/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="./Resources/CSS/General.css" type="text/css" />
+    <link rel="stylesheet" href="./Resources/CSS/Nav.css" type="text/css" />
     <link rel="stylesheet" href="./Resources/CSS/General-M.css" type="text/css" media = "screen and (max-width:1000px)"/>
     <link rel="stylesheet" href="./Resources/CSS/General-S.css" type="text/css" media = "screen and (max-width:700px)"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/CSS/Print.css" media="print">
 
 </head>
 
 <body>
     <header>
         <h1>JuicerOW - <b>Sucuri Naturale</b></h1>
-        
-        
-
-
+    </header>
         <nav>
-            <ul>
-                <li><div>Acasa</div>
-                    <ul class = "meniu">
-                        <li><a href="#Home-Favourites">Produsele noastre favorite</a></li>
-                        <li><a href="#Home-About">De ce sa consumi <b>sucuri organice</b></a></li>
-                        <li><a href="#Home-Reviews">Ce cred oamenii despre noi</a></li>
+            <label id="hamburger" for="ch-menu">
+                <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">
+            </label>
+            <input id="ch-menu" type="checkbox">
+            <ul class="menu">
+                <li><div><span class="fas fa-regular fa-house"></span> Acasa</div>
+                    <ul>
+                        <li><a href="#Home-Favourites">Favoritele noastre</a></li>
+                        <li><a href="#Home-About"><b>sucuri organice</b></a></li>
+                        <li><a href="#Home-Reviews">Review-uri</a></li>
                     </ul>
                 </li>
                 <li><a href="#Menu">Meniu</a></li>
                 <li><a href="#Contact">Contact</a></li>
-                <li><a href="#About">Despre noi</a>
+                <li><div>Despre noi</div>
                     <ul>
                         <li><a href="#About-Products">Produsele naostre</a></li>
-                        <li><a href="#About-Lifestyle">Un stil de viata sanatos</a></li>
+                        <li><a href="#About-Lifestyle">Viata sanatoasa</a></li>
                     </ul>
                 </li>
-                <li><a href="#Account">Contul meu</a>
+                <li><div>Contul meu</div>
                     <ul>
                         <li><a href="#Account-Cart">Cos de cumparaturi</a></li>
                         <li><a href="#Account-History">Istoric comenzi</a></li>
@@ -62,7 +65,7 @@
 
 
 
-    </header>
+    
     <main>
         <div class="back-to-top" title="Back to Top">
             <a href = # style="text-decoration: none;">
@@ -74,13 +77,13 @@
         <div id = "Grid-Home">  
                     <section id = "Z1">
                         <h2>
-                            Home <span class="fas fa-regular fa-house"></span>
+                            Home
                         </h2>
                         <figure>
                             <picture>
                             <source media = "(max-width: 479px)" srcset ="./Resources/Assets/Orange-S.png">
                             <source media = "(max-width: 639px)" srcset ="./Resources/Assets/Orange-M.png">
-                            <img src = "./Resources/Assets/Orange-L.png" width="400" height="400" alt = "Suc de portocale" title ="Suc de portocale"/>
+                            <img src = "./Resources/Assets/Orange-L.png" alt = "Suc de portocale" title ="Suc de portocale"/>
                             </picture>
                             <figcaption><a href="./Resources/Assets/Orange-L.png" download>
                                 Download
@@ -312,6 +315,8 @@
         </section>
     </main>
     <footer>
+        <p id = "Banner">Acesta este un proiect scolar</p>
+        <p id = "Watermark">Simion<br>Stefan</p>
         <a href="#">Link top</a>
         <!-- adresa, contact etc.-->
         <address> <!-- doar face textul italic, dar daca am fi folosit <i> -> text ideomatic, nu specific adresei-->
