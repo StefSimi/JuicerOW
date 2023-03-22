@@ -1,0 +1,70 @@
+@media print {
+	body {
+		height: auto;
+	}
+	#Banner {
+		position: fixed;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 70%;
+		border: 4px inset #000;
+		padding: 10px;
+		text-align: center;
+	}
+	#Watermark {
+		position: fixed;
+		bottom: 0;
+		left: 80%;
+		transform: translateX(-20%);
+		padding: 5px;
+		text-align: center;
+		display: block;
+		font-weight: bold;
+		opacity: 0.4;
+	}
+	img {
+		display: none;
+	}
+	video {
+		display: none;
+	}
+	iframe {
+		display: none;
+	}
+	.description {
+		display: none;
+	}
+	.image-caption {
+		display: none;
+	}
+	figcaption {
+		display: none;
+	}
+	#Grid-Home {
+		display: block;
+	}
+	.back-to-top {
+		display: none;
+	}
+	a {
+		text-decoration: none;
+		color: black;
+	}
+	h1 {
+		page-break-after: always;
+		text-align: center;
+	}
+	#Footer {
+		page-break-before: always;
+	}
+	@page {
+		size: A4 portrait;
+		margin-left: 3cm;
+		margin-right: 1cm;
+		&:left {
+			margin-left: 1cm;
+			margin-right: 3cm;
+		}
+	}
+}

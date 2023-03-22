@@ -1,0 +1,119 @@
+/*
+ul.menu > li:not(:has(ul)) {
+     styles for primary li elements 
+    text-shadow: 0px -10px 0px rgba(0,0,0, 0.0);
+    transition: text-shadow 0.5s linear;
+  }
+
+  ul.menu > li:not(:has(ul)):hover {
+     styles for the primary li elements on hover 
+    text-shadow: 0px 0px 0px rgba(0,0,0, 1);
+  }
+*/
+#hamburger {
+	display: none;
+}
+#ch-menu {
+	display: none;
+}
+.fa-house {
+	display: inline-block;
+}
+li {
+	div {
+		display: inline-block;
+	}
+	&:hover.shadowtext {
+		a {
+			text-shadow: 0px 0px 0px rgba(0,0,0, 1);
+		}
+	}
+}
+body {
+	--menu-height: 55px;
+	--button-width: 150px;
+	--menu-color: var(--cul3);
+}
+nav {
+	--border-thickness: 1px;
+	background-color: var(--menu-color);
+	height: var(--menu-height);
+	width: calc(100vw - 18px);
+	position: sticky;
+	top: 0;
+	left: 0;
+	margin-left: calc(-1 * var(--site-spacing));
+}
+ul.menu {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	li {
+		padding: 0;
+		margin: 0;
+		text-shadow: 0px 0px 0px rgba(0,0,0, 0.0);
+		width: var(--button-width);
+		height: var(--menu-height);
+		background-color: var(--menu-color);
+		overflow: hidden;
+		text-align: center;
+		border: 1px solid black;
+		box-sizing: border-box;
+		transition: background-color0.5s linear;
+		ul {
+			li {
+				text-decoration: underline;
+				text-decoration-color: transparent;
+				transition: text-decoration-color,background-color 0.5s linear;
+				&:hover {
+					background-color: var(--cul4);
+					text-decoration-color: rgba(0,0,0, 1);
+				}
+			}
+		}
+		&:hover {
+			background-color: var(--cul4);
+			overflow: visible;
+			ul {
+				transform: scale(1,1);
+				opacity: 1;
+			}
+		}
+		div {
+			display: block;
+			width: 100%;
+			height: 100%;
+			vertical-align: middle;
+			line-height: calc(var(--menu-height) - 2 * var(--border-thickness));
+			color: black;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			vertical-align: middle;
+			line-height: calc(var(--menu-height) - 2 * var(--border-thickness));
+			color: black;
+			text-decoration: none;
+			font-weight: bold;
+		}
+	}
+	ul {
+		padding: 0;
+		list-style-type: none;
+		opacity: 0;
+		transition: all 0.5s linear;
+		transform: scale(1,0);
+		transform-origin: center top;
+	}
+}
+li.shadowtext {
+	a {
+		text-shadow: 0px -10px 0px rgba(0,0,0, 0);
+		transition: text-shadow 0.5s linear;
+	}
+}

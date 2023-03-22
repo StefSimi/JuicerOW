@@ -2,11 +2,11 @@
     display: none;
 }
 .fa-house {
-  display: inline-block; /* or 'inline' */
+  display: inline-block; 
 }
 
 li div {
-  display: inline-block; /* or 'inline' */
+  display: inline-block;
 }
 body{
     --menu-height:55px;

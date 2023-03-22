@@ -1,0 +1,28 @@
+/*
+#Grid-Home figure{
+    visibility: hidden;
+
+}*/
+&:root {
+	--site-spacing: 10px;
+}
+body {
+	margin-left: var(--site-spacing);
+	margin-right: var(--site-spacing);
+}
+img {
+	width: 10%;
+	height: 10%;
+	min-width: 50px;
+	max-width: 800px;
+}
+#Grid-Home {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr;
+	grid-template-areas: "z-1" "z-8" "z-3" "z-2" "z-4" "z-5" "z-6" "z-7";
+	>* {
+		border: 1px solid var(--border-color);
+		font-size: 11px;
+	}
+}
