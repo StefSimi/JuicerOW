@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <!--<meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">-->
+        <!--<meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">-->
+        <title>JuicerOW - eroare</title>
+        <!--<link rel="stylesheet" type="text/css" href="/Resources/CSS/error.css" type="text/css">-->
+        <link rel="stylesheet" href="/Resources/CSS/error.css" type="text/css" />
+        <%- include("../Fragments/head.ejs");  %> 
+
+
+    </head>
+    <body>
+        
+    <%- include("../Fragments/header.ejs");  %> 
+
+    <main>
+        <div id="err-coloane">
+			<div id="err-imag">
+				<img src="<%- locals.imagine %>"/>
+			</div>
+			<section>
+				<h2><%- locals.titlu %></h2>
+				<p><%- locals.text %></p>
+			</section>
+		</div>
+    </main>
+    
+    <%- include("../Fragments/footer.ejs");  %> 
+
+
+    </body>
+</html>
