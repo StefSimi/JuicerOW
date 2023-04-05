@@ -212,3 +212,55 @@ ul.ifr li a{
   #Watermark{
     display: none;
   }
+
+
+  a{
+    background-image: radial-gradient( var(--border-color) 0%, var(--border-color) 40%, transparent 80%, transparent 100%);
+    background-position: center;
+    background-size: 0%;
+    background-repeat: no-repeat;
+    transition:all 1.5s ease-out;
+    color:var(--cul2)
+  } 
+
+  a:active{
+      color:var(--cul2);
+      border: 1px solid black;
+  }
+  a:visited{
+      color:var(--cul4);
+  }
+
+
+  a[href^="http"]::before{
+      content:"⮳";
+      font-size: 1.5em;
+      font-weight: bold;
+  }
+  a[href^="http"]:hover::before{
+      color: var(--cul3);
+      transition: color 0.3s linear;
+  }
+
+  a:hover{
+      background-size:100%;
+      background-position: center;
+  }
+
+  ::cue{
+      color: var(--cul2);
+      background-color: white;
+      font-size: 1.5rem;
+      justify-content: center;
+      text-align: center;
+      
+  }
+
+  video{
+      display: block;
+      width: 100%;
+      min-width: 200px;
+      max-width: 400px;
+      min-height: auto;
+      max-height: none;
+  }
