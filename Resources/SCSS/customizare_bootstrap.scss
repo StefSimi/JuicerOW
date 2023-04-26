@@ -1,0 +1,24 @@
+/*
+sass .\SCSS\customizare_bootstrap.scss css/customizare_bootstrap.css
+*/
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
+    $primary: #A0E368,
+    $secondary: #FA8D84,
+    $border-width: 2px,
+    $font-family-base: 'Arial, sans-serif',
+    $border-radius: 3px,
+    $headings-color: #333,
+    $headings-font-family: 'Montserrat, sans-serif',
+    $body-color: #333,
+    $body-bg: #FA8D84,
+    $grid-breakpoints: (
+    xs: 0,
+    sm: 550px,
+    md: 700px,
+    lg: 992px, 
+    xl: 1200px,
+    xxl: 1400px
+    )
+
+
+);

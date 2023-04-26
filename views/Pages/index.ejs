@@ -32,6 +32,7 @@
                     <section id = "Z1">
                         <h2>
                             Home
+                            
                         </h2>
                         <figure>
                             <picture>
@@ -120,30 +121,6 @@
                         </video>
                     </section>
                     <section id = "Z4">
-                        <p>Z4 Nam congue pharetra egestas. Duis nisl risus, elementum nec neque id, imperdiet accumsan augue.</p>
-                    </section>
-                    <section id = "Z5">
-                        <p>Z5 In hac habitasse platea dictumst. Nunc quam elit, tempor at feugiat et, efficitur sit amet diam. In id ipsum porttitor, ultricies diam a, dignissim augue.</p>
-                    </section>
-                    <section id = "Z6">
-                        <p>Z6 Mauris vehicula fermentum justo. Morbi tempor viverra justo sed rhoncus. Suspendisse porttitor volutpat neque, a vestibulum turpis.</p>
-                    </section>
-                    <section id = "Z7">
-                        <p>Z7 Donec a elit at nisi dignissim facilisis non id ipsum. Proin malesuada enim non mauris pulvinar, ut congue elit vestibulum.</p>
-                    </section>
-                    <section id = "Z8">
-                        
-                        
-                        
-                        <section id ="Home-Favourites">
-                            <h3>
-                                <!--<span class="fas fa-heart fa-fw fa-spin"></span>--> Produsele noastre favorite:<!-- <span class="fas fa-heart fa-fw fa-spin"></span>-->
-                            </h3>
-                            <p>
-                                Text produse fav
-                            </p>
-
-                        </section>
                         <section id = "Home-About">
                             <h3>
                                 Cateva informatii despre noi:
@@ -158,6 +135,19 @@
                                 <li>Scaderea inflamatiilor;</li>
                             </ul>
                         </section>
+                    </section>
+                    <section id = "Z5">
+                        <section id ="Home-Favourites">
+                            <h3>
+                                <!--<span class="fas fa-heart fa-fw fa-spin"></span>--> Produsele noastre favorite:<!-- <span class="fas fa-heart fa-fw fa-spin"></span>-->
+                            </h3>
+                            <p>
+                                Text produse fav
+                            </p>
+
+                        </section>
+                    </section>
+                    <section id = "Z6">
                         <section id = "Home-Reviews">
                             <h3>
                                 Cateva review-uri
@@ -174,6 +164,42 @@
                                 </details>
                            
                         </section>
+                    </section>
+                    <section id = "Z7">
+                        <p>Z7 Donec a elit at nisi dignissim facilisis non id ipsum. Proin malesuada enim non mauris pulvinar, ut congue elit vestibulum.</p>
+                        <button class="btn btn-primary">ceva</button>
+                    </section>
+                    <section id = "Z8">
+                        <h2>Galerie</h2>
+
+                        
+                        <div id="grid-galerie">
+                            <% for (let imag of locals.imagini) { %>
+                               
+                                    <figure>
+                                        <picture>
+                                            <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                                            <img src="<%- imag.fisier %>" alt="imagine">
+                                        </picture>
+                                        <figcaption><%- imag.descriere %></figcaption>
+                                    </figure>
+                                    <!--<div id="empty"></div>-->
+                                    
+                                    <figure>
+                                        <picture>
+                                            <img src = "/Resources/Assets/Test.png">
+                                        </picture>
+                                    </figure>
+                                        
+                                    
+                        
+                            <% }  %>
+                        </div>
+                        
+                        
+                        
+                        
+                        
                     </section>
 
                 </div>

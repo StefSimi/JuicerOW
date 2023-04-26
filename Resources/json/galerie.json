@@ -1,39 +1,39 @@
 {
-	"cale_galerie":"resurse/imagini/galerie",
+	"cale_galerie":"Resources/Assets/Gallery",
 	"imagini": [
 		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
+			"fisier":"Apple.png",
+			"descriere":"Mar",
 			"luni":["martie","februarie","noiembrie"]
 		},
 		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
+			"fisier":"Cranberry.png",
+			"descriere":"Cranberry",
 			"luni":["ianuarie","februarie","iunie"]
 			
 		},
 		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
+			"fisier":"Grapefruit.png",
+			"descriere":"Grapefruit",
 			"luni":["ianuarie","noiembrie","iunie","martie"]
 		},
 		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
+			"fisier":"Pear.png",
+			"descriere":"Para",
 			
 			"luni":["noiembrie"]
 		},
 		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată"
+			"fisier":"Pineapple.png",
+			"descriere":"Ananas"
 		},
 		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
+			"fisier":"Strawberry.png",
+			"descriere":"Capsuni"
 		},
 		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
+			"fisier":"Watermelon.png",
+			"descriere":"Pepene"
 		}
 	]
 }

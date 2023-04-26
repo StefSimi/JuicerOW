@@ -20,7 +20,7 @@ body{
     --cul3: #FAE87F;
     --cul4: #E6963E;
     --border-color: #FA8D84;
-    --text-color: #000000;
+    --text-color: #333;
     --button-width:150px;
     --button-height:55px;
     background-color: var(--background-color);
@@ -132,6 +132,7 @@ ul.ifr li a{
 .ifr-video{
     border:5px solid var(--border-color);
 }
+
 .back-to-top {
     position: fixed;
     bottom: 20px;
