@@ -4,6 +4,35 @@ const path = require("path");
 const sharp = require("sharp");
 const sass = require("sass");
 const { eventNames } = require("process");
+const jsonFile = path.join(__dirname,"Resources/json/galerie.json");
+const {Client} = require('pg');
+const AccesBD=require("./module_proprii/accesbd.js");
+const formidable=require("formidable");
+const {Utilizator}=require("./module_proprii/utilizator.js")
+const session=require('express-session');
+const Drepturi = require("./module_proprii/drepturi.js");
+
+
+
+AccesBD.getInstanta().select({
+    tabel:"produse",
+    campuri:["nume","pret"],
+    conditiiAnd:["pret>30"]
+},function(err,rez){
+    console.log(err);
+    console.log(rez);
+})
+
+var client =  new Client({database:"juicerow",
+    user:"stef",
+    password:"parola",
+    host:"localhost",
+    port:5432});
+client.connect();
+/*client.query("select * from produse",function(err,rez){
+    console.log("Eroare BD",err);
+    console.log("Rezultat BD",rez.rows);
+});*/
 
 obGlobal={
     obErr:null,
@@ -78,6 +107,10 @@ function compileazaScss(caleScss, caleCss){
     //TO DO
     // let vectorCale=caleCss.split("\\");
     // let numeFisCss=vectorCale[vectorCale.length-1]
+    let caleBackup=path.join(obGlobal.folderBackup,"Resources/CSS");
+    if(!fs.existsSync(caleBackup))
+        fs.mkdirSync(caleBackup,{recursive:true})
+
     let numeFisCss=path.basename(caleCss);
     if (fs.existsSync(caleCss)){
         fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup,numeFisCss ))// +(new Date()).getTime()
@@ -105,6 +138,9 @@ fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
     }
 })
 
+
+
+
 app.set("view engine","ejs");
 
 app.use("/Resources",express.static(__dirname+"/Resources"));
@@ -113,6 +149,147 @@ app.use("/node_modules",express.static(__dirname+"/node_modules"));
 app.use(/^\/Resources(\/[a-zA-Z0-9]*(?!\.)[a-zA-Z0-9]*)*$/, function(req,res){
     shErr(res,403);
 });
+
+
+app.get("/produse",function(req, res){
+
+
+    //TO DO query pentru a selecta toate produsele
+    //TO DO se adauaga filtrarea dupa tipul produsului
+    //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
+    client.query("select * from unnest(enum_range(null::tipuri_produse))",function(err,rezCategorie){
+        if(err){
+            console.log(err);
+            shErr(res,2);
+        }
+        else{
+            //console.log(rezCategorie);
+            let conditieWhere=""; 
+            if (req.query.tip)
+                conditieWhere= ` where tip='${req.query.tip}'`;
+
+            client.query("select * from produse "+conditieWhere , function( err, rez){
+                console.log(300)
+                if(err){
+                    console.log(err);
+                    shErr(res, 2);
+                }
+                else
+                    res.render("Pages/produse", {produse:rez.rows, optiuni:rezCategorie.rows});
+            });
+        }
+
+
+    })
+        
+        
+
+
+});
+
+
+app.get("/produs/:id",function(req, res){
+    console.log(req.params);
+   
+    client.query(` select * from produse where id=${req.params.id} `, function( err, rezultat){
+        if(err){
+            console.log(err);
+            shErr(res, 2);
+        }
+        else
+            res.render("Pages/produs", {prod:rezultat.rows[0]});
+    });
+});
+
+
+app.post("/inregistrare",function(req, res){
+    var username;
+    var poza;
+    console.log("ceva");
+    var formular= new formidable.IncomingForm()
+    formular.parse(req, function(err, campuriText, campuriFisier ){//4
+        console.log("Inregistrare:",campuriText);
+
+        console.log(campuriFisier);
+        var eroare="";
+
+        var utilizNou=new Utilizator();
+        try{
+            utilizNou.setareNume=campuriText.nume;
+            utilizNou.setareUsername=campuriText.username;
+            utilizNou.email=campuriText.email
+            utilizNou.prenume=campuriText.prenume
+            
+            utilizNou.parola=campuriText.parola;
+            utilizNou.culoare_chat=campuriText.culoare_chat;
+            utilizNou.poza= poza;
+            Utilizator.getUtilizDupaUsername(campuriText.username, {}, function(u, parametru ,eroareUser ){
+                if (eroareUser==-1){//nu exista username-ul in BD
+                    utilizNou.salvareUtilizator();
+                }
+                else{
+                    eroare+="Mai exista username-ul";
+                }
+
+                if(!eroare){
+                    res.render("Pages/inregistrare", {raspuns:"Inregistrare cu succes!"})
+                    
+                }
+                else
+                    res.render("Pages/inregistrare", {err: "Eroare: "+eroare});
+            })
+            
+
+        }
+        catch(e){ 
+            console.log(e);
+            eroare+= "Eroare site; reveniti mai tarziu";
+            console.log(eroare);
+            res.render("Pages/inregistrare", {err: "Eroare: "+eroare})
+        }
+    
+
+
+
+    });
+    formular.on("field", function(nume,val){  // 1 
+	
+        console.log(`--- ${nume}=${val}`);
+		
+        if(nume=="username")
+            username=val;
+    }) 
+    formular.on("fileBegin", function(nume,fisier){ //2
+        console.log("fileBegin");
+		
+        console.log(nume,fisier);
+		//TO DO in folderul poze_uploadate facem folder cu numele utilizatorului
+        let folderUser=path.join(__dirname, "poze_uploadate",username);
+        //folderUser=__dirname+"/poze_uploadate/"+username
+        console.log(folderUser);
+        if (!fs.existsSync(folderUser))
+            fs.mkdirSync(folderUser);
+        fisier.filepath=path.join(folderUser, fisier.originalFilename)
+        poza=fisier.originalFilename
+        //fisier.filepath=folderUser+"/"+fisier.originalFilename
+
+    })    
+    formular.on("file", function(nume,fisier){//3
+        console.log("file");
+        console.log(nume,fisier);
+    }); 
+});
+
+
+
+
+
+/*
+client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rez){
+    console.log(err);
+    console.log(rez);
+})
+*/
 
 app.get("/favicon.ico",function(req,res){
     res.sendFile(__dirname+"/Resources/Assets/favicon.ico");
@@ -208,6 +385,9 @@ function shErr(res, _identificator,_titlu,_text,_imagine){
         res.render("Pages/eroare",{titlu:errDef.titlu, text:errDef.text, imagine:obGlobal.obErr.cale_baza+"/"+errDef.imagine});
     }
 }
+
+
+
 
 app.listen(8080);
 console.log("Server is up");

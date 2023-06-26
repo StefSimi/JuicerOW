@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
+        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
+        
+        <title>JuicerOW Produs</title>
+        <%- include("../Fragments/head.ejs") %>
+        <link href="/Resources/CSS/produs.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+     <%- include("../Fragments/header.ejs") %>
+
+    <main>
+        <section>
+            <h2>Pagină produs</h2>
+                <article id="art-produs">
+                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                    <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                    <p>Locuri Provenienta: <span class="locuri_provenienta"><%- locals.prod.locuri_provenienta %> </span></p>
+                    <p>Calorii: <span class="calorii"><%- locals.prod.calorii %> </span></p>
+                    <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
+                    <p>Tip: <span class="tip"><%- locals.prod.tip %> </span></p>
+                    <p>Scump: <span class="scump"><%- locals.prod.scump %> </span></p>
+                    <p>Data iesire din stoc: <span class="data_iesire_din_stoc"><%- locals.prod.data_iesire_din_stoc %> </span></p>
+                    <figure class="imag-produs">
+                        <img  src="/Resources/Assets/Gallery/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                    </figure>    
+                </article>
+            
+        </section>
+    </main>
+
+    <%- include("../Fragments/footer.ejs") %>
+    </body>
+</html>

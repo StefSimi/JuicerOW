@@ -16,8 +16,39 @@
 
 <body>
     <%- include("../Fragments/header.ejs") %>
-
-
+    <button id = "tema" class= "btn btn-primary">theme</button>
+      <div id="galerie_exemplu" class="galerie">
+        <div>
+            <figure>
+                <img src="/Resources/Assets/Gallery/Apple.png" alt="Image 1">
+                <figcaption>Mar</figcaption>
+            </figure>
+            <figure>
+                <img src="/Resources/Assets/Gallery/Cranberry.png" alt="Image 2">
+                <figcaption>Cranberry</figcaption>
+            </figure>
+            <figure>
+                <img src="/Resources/Assets/Gallery/Grapefruit.png" alt="Image 3">
+                <figcaption>Grapefruit</figcaption>
+            </figure>
+            <figure>
+                <img src="/Resources/Assets/Gallery/Pear.png" alt="Image 4">
+                <figcaption>Para</figcaption>
+            </figure>
+            <figure>
+                <img src="/Resources/Assets/Gallery/Pineapple.png" alt="Image 5">
+                <figcaption>Ananas</figcaption>
+            </figure>
+            <figure>
+                <img src="/Resources/Assets/Gallery/Strawberry.png" alt="Image 6">
+                <figcaption>Capsuna</figcaption>
+            </figure>
+            <figure>
+                <img src="/Resources/Assets/Gallery/Strawberry.png" alt="Image 7">
+                <figcaption>Capsuna2</figcaption>
+            </figure>
+        </div>
+    </div>
 
     
     <main>
@@ -34,6 +65,9 @@
                             Home
                             
                         </h2>
+
+                        
+                        <!---
                         <figure>
                             <picture>
                             <source media = "(max-width: 479px)" srcset ="./Resources/Assets/Orange-S.png">
@@ -43,7 +77,10 @@
                             <figcaption><a href="./Resources/Assets/Orange-L.png" download>
                                 Download
                             </a></figcaption>
-                        </figure>
+                        </figure>-->
+                        
+                        
+                        
                         
                     </section>
                     <section id = "Z2"><!--Tabel-->
@@ -142,7 +179,28 @@
                                 <!--<span class="fas fa-heart fa-fw fa-spin"></span>--> Produsele noastre favorite:<!-- <span class="fas fa-heart fa-fw fa-spin"></span>-->
                             </h3>
                             <p>
-                                Text produse fav
+                                Sucul de portocoale. O portocala are volumul: <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mrow>
+                                      <mi>V</mi>
+                                      <mo>=</mo>
+                                      <mfrac>
+                                        <mrow>
+                                          <mn>4</mn>
+                                          <mo>&InvisibleTimes;</mo>
+                                          <mi>&pi;</mi>
+                                          <mo>&InvisibleTimes;</mo>
+                                          <msup>
+                                            <mi>r</mi>
+                                            <mn>3</mn>
+                                          </msup>
+                                        </mrow>
+                                        <mrow>
+                                          <mn>3</mn>
+                                        </mrow>
+                                      </mfrac>
+                                    </mrow>
+                                  </math>
+                                
                             </p>
 
                         </section>
@@ -167,7 +225,7 @@
                     </section>
                     <section id = "Z7">
                         <p>Z7 Donec a elit at nisi dignissim facilisis non id ipsum. Proin malesuada enim non mauris pulvinar, ut congue elit vestibulum.</p>
-                        <button class="btn btn-primary">ceva</button>
+                        
                     </section>
                     <section id = "Z8">
                         <h2>Galerie</h2>
@@ -215,7 +273,7 @@
             </details>
             <details><summary>Suc de portocale</summary>
                 <p>
-                    5 RON
+                    5 RON 
                 </p>
             </details>
             <details><summary>Limonada</summary>
@@ -265,7 +323,7 @@
 
                 
                 <ul class = "ifr">
-                    <li><a href="https://www.youtube.com/embed/kvWrLXwJzck" target="ifr-video">Cum se fabrica sucul de portocale</a></li>
+                    <li class="firstifr"><a href="https://www.youtube.com/embed/kvWrLXwJzck" target="ifr-video">Cum se fabrica sucul de portocale</a></li>
                     <li><a href="https://www.youtube.com/embed/1Cqd9KZMKKQ" target="ifr-video">Cum sa storci o lamaie fara storcator</a></li>
                     <li><a href="https://www.youtube.com/embed/bGfJILzw6Mc" target="ifr-video">Reteta suc de mere</a></li>
                 </ul>
